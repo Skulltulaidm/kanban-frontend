@@ -353,9 +353,27 @@ user: ['user']
 DATABASE_URL="postgresql://user:pass@localhost:5432/kanban"
 JWT_SECRET="secret-key"
 PORT=3001
+NODE_ENV=production
 ```
 
 #### Frontend (.env.local)
 ```env
 NEXT_PUBLIC_API_URL=http://localhost:3001
+```
+
+#### Seed BD
+
+##### Opción 1: Solo ejecutar el seed (mantiene datos existentes)
+```bash
+npm run seed
+```
+
+##### Opción 2: Resetear la base de datos y ejecutar seed
+```bash
+npm run prisma:reset
+```
+##### Opción 3: Si solo quieres ejecutar migraciones y luego seed
+```bash
+npx prisma migrate dev
+npm run seed
 ```
